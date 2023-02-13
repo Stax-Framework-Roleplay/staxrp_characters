@@ -1,0 +1,15 @@
+{
+  "ui": {
+    "character_manager": {
+      "header": "Character Manager"
+    },
+    "character_creator": {
+      "header": "Character Creator"
+    }
+  },
+  "notifications": {
+    "character_deleted": "Character Deleted",
+    "character_created": "Character Created",
+    "character_selected": "Character Selected"
+  }
+}
