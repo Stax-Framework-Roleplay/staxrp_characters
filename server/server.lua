@@ -1,5 +1,4 @@
-local Events = Stax.Singletons.Events
-local User = Stax.Classes.User
+local Events = Stax.Events()
 
 Events.CreateNetEvent("STAX::Characters::Server::CreateCharacter", function()
 

@@ -25,15 +25,7 @@ function Character:Load()
 end
 
 Stax.ServerOnly(function()
-  if not Stax.Classes.Roleplay then
-    Stax.Classes.Roleplay = {}
-  end
-  
-  if not Stax.Classes.Roleplay.Character then
-    Stax.Classes.RolePlay.Character = {}
-  end
-  
-  if not Stax.Classes.RolePlay.Characters.Character then
-    Stax.Classes.RolePlay.Characters.Character = Character
+  function Stax.Character()
+    return Character
   end
 end)
