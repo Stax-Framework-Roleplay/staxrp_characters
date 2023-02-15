@@ -11,7 +11,6 @@ document.onreadystatechange = () => {
 
     store.commit(event.mutation, event.payload);
   });
-
-  // store.commit("Router/CHANGE_ROUTE", { route: "creator" });
-  axios.post(`http://${GetParentResourceName()}/ready`)
+  
+  // axios.post(`http://${GetParentResourceName()}/ready`)
 }
