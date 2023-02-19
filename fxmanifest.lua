@@ -20,8 +20,7 @@ server_scripts {}
 lua54 "yes"
 
 --[[ STAX METADATA ]]--
-stax_plugin "stax-rp-characters" {
+stax_plugin "staxrp-characters" {
   name = "Stax Roleplay Characters",
-  description = "Stax Roleplay Character Manager",
-  dependency = { "stax-core" }
+  description = "Stax Roleplay Character Manager"
 }
