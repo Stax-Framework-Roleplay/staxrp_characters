@@ -1,10 +1,24 @@
 const CharacterSelector = {
   namespaced: true,
   state: () => ({
-    characters: [],
-    viewedCharacter: null
+    characters: [
+      {
+        firstname: "Brian",
+        lastname: "Wrathens",
+        age: 24,
+        gender: "Male",
+        bank: 10000,
+        jobs: [
+          { name: "Malice Ink" }
+        ]
+      }
+    ]
   }),
-  getters: {},
+  getters: {
+    getCharacters(state) {
+      return state.characters
+    }
+  },
   actions: {
     ViewCharacter(context, payload) {
       context.commit("SET_VIEWED_CHARACTER", payload);

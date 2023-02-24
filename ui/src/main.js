@@ -6,7 +6,6 @@ import axios from "axios";
 import VueAxios from "vue-axios";
 
 import "./scss/tailwind.scss"
-
 import "./listener.js"
 
 createApp(App)
