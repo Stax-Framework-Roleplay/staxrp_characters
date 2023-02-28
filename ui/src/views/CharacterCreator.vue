@@ -5,7 +5,7 @@
       <TextInput title="First Name" v-model:input="firstname"></TextInput>
       <TextInput title="Last Name" v-model:input="lastname"></TextInput>
       <DateInput title="Birthday" v-model:input="dob"></DateInput>
-      <RangeInput title="Testing" :min="1" :max="10" v-model:input="test.key"></RangeInput>
+      <SwitchInput title="Sex" first-option="Male" second-option="Female" v-model:input="gender"></SwitchInput>
     </div>
   </div>
 </template>
@@ -14,7 +14,8 @@
   import store from "@/store/index"
   import TextInput from "@/components/creator/textinput.vue"
   import DateInput from "@/components/creator/dateinput.vue"
-  import RangeInput from "@/components/creator/rangeinput.vue"
+  // import RangeInput from "@/components/creator/rangeinput.vue" // Not Used Yet
+  import SwitchInput from "@/components/creator/switchinput.vue"
 
   export default {
     data() {
@@ -22,9 +23,7 @@
         firstname: "",
         lastname: "",
         dob: "",
-        test: {
-          key: 5
-        }
+        gender: "Male"
       }
     },
     methods: {
@@ -32,7 +31,7 @@
         store.commit("Router/CHANGE_ROUTE");
       }
     },
-    components: { TextInput, DateInput, RangeInput }
+    components: { TextInput, DateInput, SwitchInput }
   }
 </script>
 

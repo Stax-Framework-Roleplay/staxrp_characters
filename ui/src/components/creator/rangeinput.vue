@@ -1,8 +1,15 @@
 <template>
   <div class="w-full bg-black rounded-lg p-2">
     <div class="w-full p-4 text-white text-center">{{ title }}</div>
+    <div class="flex w-full text-white text-center justify-center">
+      <div class="w-1/5 bg-gray-700 rounded-lg outline outline-1 outline-transparent hover:outline-white p-1">[</div>
+      <div class="w-1/2">{{ value }}</div>
+      <div class="w-1/5 bg-gray-700 rounded-lg outline outline-1 outline-transparent hover:outline-white p-1">]</div>
+    </div>
     <div class="flex w-full h-20 p-2 rounded-lg justify-center items-center">
+      <div class="flex text-white p-2 w-10 mr-2 justify-center text-center bg-gray-800 rounded-lg">{{ min }}</div>
       <input class="h-3/4 w-full rounded-lg text-center focus:outline-none bg-gray-800 text-white focus:outline-white focus:outline-1" type="range" :min="min" :max="max" @input="EmitInput">
+      <div class="flex text-white p-2 w-10 ml-2 justify-center text-center bg-gray-800 rounded-lg">{{ max }}</div>
     </div>
   </div>
 </template>
@@ -16,13 +23,20 @@
       min: { type: Number, required: true, default: 0 },
       max: { type: Number, required: true, default: 1 }
     },
+    data() {
+      return {
+        value: 0
+      }
+    },
     methods: {
       EmitInput(e) {
-        this.$emit("update:input", toNumber(e.target.value));
+        this.value = e.target.value;
+        this.$emit("update:input", toNumber(this.value));
       }
     },
     mounted() {
-      this.$emit("update:input", this.min);
+      this.value = this.min;
+      this.$emit("update:input", this.value);
     }
   }
 </script>
