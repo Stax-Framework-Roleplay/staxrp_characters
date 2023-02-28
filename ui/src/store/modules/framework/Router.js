@@ -22,14 +22,20 @@ const Router = {
       state.show = false;
     },
     CHANGE_ROUTE(state, payload) {
-      const hasRoute = router.hasRoute(payload.route);
+      if (payload && payload.route) {
+        const hasRoute = router.hasRoute(payload.route);
 
-      if (!hasRoute) {
-        return;
+        if (!hasRoute) {
+          console.error(`The route ${payload.route} does not exist!`);
+          return;
+        }
+
+        router.push(payload.route);
+        state.route = payload.route;
+      } else {
+        router.push("/");
+        state.route = "/";
       }
-
-      router.push(payload.route);
-      state.route = payload.route;
     }
   }
 }
