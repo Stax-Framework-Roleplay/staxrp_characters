@@ -1,4 +1,4 @@
-local UI = Stax.Singletons.UI
+local UI = Stax.UI()
 
 UI.RegisterCallback("ready", function(data, callback)
   UI.FireMigration("Config", "SET_CONFIGS", Stax.Config:Get())
