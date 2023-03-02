@@ -9,11 +9,17 @@
 </template>
 
 <script>
+  import { useRouterStore } from "@/stores/framework/router"
+
   export default {
     computed: {
       show() {
-        return this.$store.getters["Router/GetShowState"]
+        return this.routerStore.GetShowState
       }
+    },
+    setup() {
+      const routerStore = useRouterStore();
+      return { routerStore }
     }
   }
 </script>

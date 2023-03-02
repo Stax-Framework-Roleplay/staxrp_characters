@@ -11,7 +11,8 @@
 </template>
 
 <script>
-  import store from "@/store/index"
+  import { useRouterStore } from "@/stores/framework/router"
+  
   import TextInput from "@/components/creator/textinput.vue"
   import DateInput from "@/components/creator/dateinput.vue"
   // import RangeInput from "@/components/creator/rangeinput.vue" // Not Used Yet
@@ -28,8 +29,13 @@
     },
     methods: {
       GoBack() {
-        store.commit("Router/CHANGE_ROUTE");
+        this.routerStore.ChangeRoute();
       }
+    },
+    setup() {
+      const routerStore = useRouterStore()
+
+      return { routerStore }
     },
     components: { TextInput, DateInput, SwitchInput }
   }

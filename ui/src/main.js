@@ -1,15 +1,17 @@
 import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 import App from './App.vue'
-import router from './router'
-import store from './store'
-import axios from "axios";
-import VueAxios from "vue-axios";
+import router from '@/router'
+import axios from 'axios';
+import VueAxios from 'vue-axios';
 
-import "./scss/tailwind.scss"
-import "./listener.js"
+const pinia = createPinia()
+
+import './scss/tailwind.scss'
+import './listener.js'
 
 createApp(App)
-  .use(store)
+  .use(pinia)
   .use(router)
   .use(VueAxios, axios)
   .mount('#app')

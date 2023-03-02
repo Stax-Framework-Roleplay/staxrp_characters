@@ -65,7 +65,8 @@
 </template>
 
 <script>
-  import store from "@/store/index"
+  import { useRouterStore } from "@/stores/framework/router"
+  import { useSelectorStore } from "@/stores/selector"
 
   export default {
     data() {
@@ -78,7 +79,7 @@
     methods: {
       ViewCharacter(characterIndex) {
         if (!this.CurrentCharacters[characterIndex]) {
-          store.commit("Router/CHANGE_ROUTE", { route: "creator" })
+          this.routerStore.ChangeRoute("creator");
           return;
         }
         if (this.switching) return;
@@ -103,7 +104,16 @@
     components: {},
     computed: {
       CurrentCharacters() {
-        return store.getters["CharacterSelector/getCharacters"]
+        return this.selectorStore.GetCharacters
+      }
+    },
+    setup() {
+      const routerStore = useRouterStore();
+      const selectorStore = useSelectorStore();
+
+      return {
+        routerStore,
+        selectorStore
       }
     }
   }
